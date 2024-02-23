@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Interactive Card</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.content {
+  position: relative;
+  width: 60vw;
+  height: 60vh;
+  max-width: 300px;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#toggle {
+  display: none;
+}
+
+.outer-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://img.freepik.com/free-vector/blurred-valentine-s-day-wallpaper_23-2148819570.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  border: solid black 2px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for consistency but will be overridden by transform */
+}
+
+.card {
+  width: 98%;
+  height: 98%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-inner {
+  width: 94%;
+  height: 94%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  
+}
+
+.card-front p, .card-back p {
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card-inner:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 30px;
+  background-image: url('https://media.istockphoto.com/id/1861170037/photo/hearts-for-love.webp?b=1&s=170667a&w=0&k=20&c=b62yyW1CoZJVTQJcgbCF4eDFEVVKNLCKG13ijTWwqn0=');
+  background-size: cover;
+  background-position: center;
+  border: solid rgb(176, 57, 77) 2px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for consistency but will be overridden by transform */
+}
+
+.card-front {
+  background-color: #ffcccc;
+}
+
+.card-back {
+  background-color: #ffb3b3;
+  transform: rotateY(180deg);
+}
+
+#toggle:checked ~ .outer-layer {
+  transform: translateX(-120%);
+}
+</style>
+</head>
+<body>
+
+<div class="content">
+  <input type="checkbox" id="toggle">
+  <label for="toggle" class="outer-layer">Hế nhô, please click here</label>
+  
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <p>Happy valentine :></p>
+      </div>
+      <div class="card-back">
+        <p>Mặc dù mình chưa quen nhau lâu lắm, nhưng đã có cảm giác mình đã quen nhau tận 4-5 năm vậy. Anh biết là mình còn nhiều điều chưa hoàn toàn hợp nhau, nhưng mà anh yêu bé lắm á. Chúc bé một Valentines dui dẻ nha, mong là mình sẽ còn nhiều nhiều những Valentines cùng nhau nữa. Happy Valentine bé</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
